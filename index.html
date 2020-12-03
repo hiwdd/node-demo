@@ -8,11 +8,47 @@
 </head>
 
 <body>
-  <button type="button" class="btn">按钮</button>
+  <button type="button" class="btn1">增</button>
+  <button type="button" class="btn2">删</button>
+  <button type="button" class="btn3">改</button>
+  <button type="button" class="btn4">查</button>
   <script type="text/javascript">
-    $(".btn").on('click', function () {
+   $(".btn1").on('click', function () {
       $.ajax({
         type: "post",
+        url: "http://127.0.0.1/add",
+        async: true,
+        data: {name: "qqq",age: 18,sex: "nzn"},
+        success: function (res) {
+          console.log(res)
+        }
+      });
+    })
+    $(".btn2").on('click', function () {
+      $.ajax({
+        type: "get",
+        url: "http://127.0.0.1/del",
+        async: true,
+        data: {name: "lisi"},
+        success: function (res) {
+          console.log(res)
+        }
+      });
+    })
+    $(".btn3").on('click', function () {
+      $.ajax({
+        type: "post",
+        url: "http://127.0.0.1/updata",
+        async: true,
+        data: {name: "qqq",age: 18,sex: "nzn"},
+        success: function (res) {
+          console.log(res)
+        }
+      });
+    })
+    $(".btn4").on('click', function () {
+      $.ajax({
+        type: "get",
         url: "http://127.0.0.1/g3",
         async: true,
         success: function (res) {
@@ -20,7 +56,6 @@
         }
       });
     })
-
   </script>
 </body>
 
